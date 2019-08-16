@@ -1,16 +1,10 @@
 [discrete]
 ==== Query parameters
 
+[cols="^1,^1,^1,^1,^1", options="header"]
+|====
+|{i18n-th-name} |{i18n-th-type} |{i18n-th-in} |{i18n-th-description} |{i18n-th-accepted-values}
 {{#each queryParams as |queryParam|}}
-{{#if queryParam.name}}
-[discrete]
-===== {icon-triangle} {{queryParam.name}}
-{{/if}}
-
-{{#if queryParam.description}}
-{{{queryParam.description}}}
-{{/if}}
-
-{{> parameter param=queryParam paramName=queryParam.name hideTitle=true}}
-
+{{> paramProp prop=queryParam propName=queryParam.name required=(isRequired ../schema @key) path=''}}
 {{/each}}
+|====

@@ -4,8 +4,8 @@
     {{~#if prop.anyOf}}anyOf{{~/if}}
     {{~#if prop.oneOf}}oneOf{{~/if}}
     {{~#if prop.items.type}}({{prop.items.type}}){{~/if}}
-|+++{{{prop.descriptionAsHTML}}}+++
-|+++{{{acceptedValues prop.enum}}}+++ 
+|{{{prop.description}}}
+|{{{acceptedValues prop.enum}}}
 
 {{#each prop.anyOf}}
 {{> schemaProp prop=. propName=@key path=(buildPath ../propName ../path @key)}}

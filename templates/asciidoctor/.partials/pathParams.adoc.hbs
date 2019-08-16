@@ -1,16 +1,10 @@
 [discrete]
 ==== Path parameters
 
+[cols="^1,^1,^1,^1,^1", options="header"]
+|====
+|{i18n-th-name} |{i18n-th-type} |{i18n-th-in} |{i18n-th-description} |{i18n-th-accepted-values}
 {{#each pathParams as |pathParam|}}
-{{#if pathParam.name}}
-[discrete]
-===== {icon-triangle} {{pathParam.name}}
-{{/if}}
-
-{{#if pathParam.description}}
-{{{pathParam.description}}}
-{{/if}}
-
-{{> parameter param=pathParam paramName=pathParam.name hideTitle=true}}
-
+{{> paramProp prop=pathParam propName=pathParam.name required=(isRequired ../schema @key) path=''}}
 {{/each}}
+|====
