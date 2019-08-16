@@ -1,18 +1,14 @@
 [discrete]
 ==== {i18n-h-headers}
 
+[cols="^1,^1,^1,^1,^1", options="header"]
+|====
+|{i18n-th-name} |{i18n-th-type} |{i18n-th-in} |{i18n-th-description} |{i18n-th-accepted-values}
+
 {{#each params as |param|}}
 {{#equal param.in 'header'}}
-{{#if param.name}}
-[discrete]
-===== {{param.name}}
-{{/if}}
-
-{{#if param.description}}
-{{{param.description}}}
-{{/if}}
-
 {{> parameter param=param paramName=param.name hideTitle=true}}
 
 {{/equal}}
 {{/each}}
+|====
