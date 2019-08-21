@@ -19,6 +19,7 @@ And execute the script giving the path to the OpenAPI file you want to render:
 
 ```sh
 cd openapi3-generator
+npm install
 ./run.sh <path_to_your_openapi>.yaml
 ```
 
