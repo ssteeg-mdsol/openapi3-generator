@@ -23,6 +23,11 @@ npm install
 ./run.sh <path_to_your_openapi>.yaml
 ```
 
+A release number can also be passed as a parameter, which will be displayed on the title page.
+```sh
+./run.sh <path_to_your_openapi>.yaml <release_number>
+```
+
 
 ## Update the script
 
