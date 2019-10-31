@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require "combine_pdf"
+require "pdf-reader"
+
+TITLE_PAGE_REGEX = /Page 1 of \d/
+
+filename = ARGV[0]
+
+title_page_num = -1
+num_empty_pages = 0
+
+# Determine how many pages the table of contents contains and identify any empty pages
+PDF::Reader.new(filename).pages.each_with_index do |page, index|
+  num_empty_pages += 1 if page.text.empty?
+  next unless page.text =~ TITLE_PAGE_REGEX
+
+  title_page_num = index
+  break
+end
+
+puts "--- Failed to reorder table of contents in generated PDF ⚠️" && return unless title_page_num >= 0
+
+# Reorder the table of contents after the title page and before the main resource documentation
+pdf = CombinePDF.new
+generated_pdf_pages = CombinePDF.load(filename).pages
+
+pdf << generated_pdf_pages[title_page_num] # title page
+pdf << generated_pdf_pages[0..(title_page_num - 1 - num_empty_pages)] # pages before title page (table of contents)
+pdf << generated_pdf_pages[(title_page_num + 1)..-1] # pages after title page (main resource documentation)
+
+pdf.save filename

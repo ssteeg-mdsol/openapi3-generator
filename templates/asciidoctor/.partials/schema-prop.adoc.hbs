@@ -4,7 +4,7 @@
     {{~#if prop.anyOf}}anyOf{{~/if}}
     {{~#if prop.oneOf}}oneOf{{~/if}}
     {{~#if prop.items.type}}({{prop.items.type}}){{~/if}}
-|{{{prop.description}}}
+|{{#if prop.description}}{{{prop.description}}}{{else}}_No Content_{{/if}}
 |{{{acceptedValues prop.enum}}}
 
 {{#each prop.anyOf}}

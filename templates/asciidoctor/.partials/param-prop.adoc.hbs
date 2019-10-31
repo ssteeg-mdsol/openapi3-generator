@@ -9,7 +9,7 @@
 unknown
 {{/if}}
 |{{prop.in}}
-|{{{prop.description}}}
+|{{#if prop.description}}{{{prop.description}}}{{else}}_No Content_{{/if}}
 |{{{acceptedValues prop.schema.enum}}}
 
 {{#each prop.anyOf}}
