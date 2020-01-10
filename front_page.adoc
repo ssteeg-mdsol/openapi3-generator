@@ -39,7 +39,7 @@ image::medidata.png[]
 |
 Document version 1.0
 
-{docdate}
+{revdate}
 |
 |
 

@@ -3,6 +3,8 @@ set -e
 
 source=$1
 release_tag=$2
+release_date=$3
+doc_year=$4
 
 if [ -z "$1" ]
 then
@@ -19,7 +21,7 @@ echo "--- Removing contact information..."
 ./contact_removal openapi.adoc
 
 echo "--- Adding Medidata flavored front page..."
-./add_front_page openapi.adoc ${release_tag}
+./add_front_page openapi.adoc ${release_tag} "`echo ${release_date}`"
 
 echo "--- Rendering beautifully into PDF...🧚 ✨"
 export PATH=$PATH:${dir}/gems/bin
