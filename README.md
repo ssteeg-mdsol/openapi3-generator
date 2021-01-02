@@ -1,3 +1,8 @@
+# Deprecation notice
+
+This repository is no longer maintained, and has been replaced by https://github.com/mdsol/openapi3-generator.
+
+
 # Generate PDFs from a OpenAPI v3 file
 
 ## Requirements
